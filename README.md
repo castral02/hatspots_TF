@@ -1,4 +1,4 @@
-# HatSpots MLP
+# HatSpot 
 
 This repository contains the Python code, examples, and trained model for predicting EP300-Transcription Factor Interactions using Evolutionary Scale Modeling Pooled Embeddings and experimentally known binding metrics. 
 
