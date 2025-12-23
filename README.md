@@ -28,9 +28,8 @@ This project utilized OpenAI's ChatGPT to assist in generating Python code, docu
 
 ## References 
 
-High-throughput affinity measurements of direct interactions between activation domains and co-activators
-Nicole DelRosso, Peter H. Suzuki, Daniel Griffith, Jeffrey M. Lotthammer, Borna Novak, Selin Kocalar, Maya U. Sheth, Alex S. Holehouse, Lacramioara Bintu, Polly Fordyce
-bioRxiv 2024.08.19.608698; [paper link](https://www.biorxiv.org/content/10.1101/2024.08.19.608698v1)
+- DelRosso, N., Suzuki, P.H., et al. *High-throughput affinity measurements of direct interactions between activation domains and co-activators*. **BioRxiv**, (2024). [paper link](https://www.biorxiv.org/content/10.1101/2024.08.19.608698v1)
+- Lin, Z., Halil, A., et al. *Evolutionary-scale prediction of atomic-level protein structure with a language model*. **Science**, 379, 1123-1130, (2023). [paper link](https://www.science.org/doi/10.1126/science.ade2574)
 
 ## Biowulf Acknowledgement: 
 
