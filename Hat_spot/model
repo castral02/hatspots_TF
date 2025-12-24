@@ -1,0 +1,47 @@
+import torch.nn as nn
+import torch
+#the model
+class hatspot_mlp(nn.Module):
+    def __init__(self, domain_input_size, tf_input_size, hidden_size, output_size, dropout_rate=0.4):
+        super(hatspot_mlp, self).__init__()
+
+        # separate pathways for domain and tf
+        self.domain_fc1 = nn.Linear(domain_input_size, hidden_size)
+        self.domain_bn1 = nn.BatchNorm1d(hidden_size)
+        self.domain_relu = nn.ReLU()
+
+        self.tf_fc1 = nn.Linear(tf_input_size, hidden_size)
+        self.tf_bn1 = nn.BatchNorm1d(hidden_size)
+        self.tf_relu = nn.ReLU()
+
+        # combined the layers -> both inputs
+        self.fc_combined = nn.Linear(hidden_size * 2, hidden_size)
+        self.bn_combined = nn.BatchNorm1d(hidden_size)
+        self.relu_combined = nn.ReLU()
+        self.dropout = nn.Dropout(dropout_rate)
+
+        # Output layer
+        self.output_layer = nn.Linear(hidden_size, output_size)
+
+    def forward(self, domain_input, tf_input):
+        # Process domain features
+        domain_out = self.domain_fc1(domain_input)
+        domain_out = self.domain_bn1(domain_out)
+        domain_out = self.domain_relu(domain_out)
+
+        # Process tf features
+        tf_out = self.tf_fc1(tf_input)
+        tf_out = self.tf_bn1(tf_out)
+        tf_out = self.tf_relu(tf_out)
+
+        # Concatenate the processed features
+        combined = torch.cat([domain_out, tf_out], dim=1)
+
+        # Pass through combined layers
+        x = self.fc_combined(combined)
+        x = self.bn_combined(x)
+        x = self.relu_combined(x)
+        x = self.dropout(x)
+        x = self.output_layer(x)
+
+        return x
