@@ -8,3 +8,5 @@ HatSpot is a trained model that was trained on data from [DelRosso & Suzuki et a
 ## Training Metrics
 
 ![Training](../images/training_metrics.png)
+
+The model highlights a slight underfitting 
